@@ -3,139 +3,461 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alder Baldwin Jallorina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Alder Baldwin Jallorina | Web3 Security Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text-light: #f9fafb;
+      --text-dark: #111827;
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --card-light: #f9fafb;
+      --card-dark: #1e1e1e;
+      --border-light: #e5e7eb;
+      --border-dark: #333333;
+      --gray-light: #6b7280;
+      --gray-dark: #a1a1a1;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     body {
-      background: #fff;
-      color: #333;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    /* Header Styles */
     header {
-      background: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #eaeaea;
+      background: var(--bg-light);
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border-light);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    header h1 {
-      font-size: 1.5rem;
+
+    .dark-mode header {
+      background: var(--bg-dark);
+      border-bottom-color: var(--border-dark);
     }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .name-container h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: inherit;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--gray-light);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode .social-icons a {
+      color: var(--gray-dark);
+    }
+
+    .social-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--gray-light);
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+    }
+
+    .dark-mode .theme-toggle {
+      color: var(--gray-dark);
+    }
+
+    /* Navigation */
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #333;
+      color: var(--gray-light);
       font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
     }
+
+    .dark-mode nav a {
+      color: var(--gray-dark);
+    }
+
     nav a:hover {
-      color: #007bff;
+      color: var(--primary);
     }
+
+    nav a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #111 0%, #333 100%);
       color: white;
       text-align: center;
       padding: 100px 20px;
     }
+
     .hero h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      font-weight: 700;
     }
+
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      opacity: 0.9;
     }
+
     .hero button {
       padding: 0.75rem 2rem;
       background: white;
       border: none;
-      color: black;
-      font-weight: bold;
+      color: var(--text-dark);
+      font-weight: 600;
       cursor: pointer;
       border-radius: 5px;
+      transition: all 0.3s ease;
     }
+
+    .hero button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Content Sections */
     section {
       padding: 80px 20px;
       max-width: 1000px;
       margin: auto;
+      scroll-margin-top: 100px;
     }
+
     section h3 {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      color: inherit;
+      position: relative;
     }
+
+    section h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    /* Bullet List Styles */
+    .bullet-list {
+      margin-left: 1.5rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 1rem;
+      list-style-type: disc;
+    }
+
+    .bullet-list strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .dark-mode .bullet-list strong {
+      color: var(--primary-dark);
+    }
+
+    .cert-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
-      border-top: 1px solid #eaeaea;
+      border-top: 1px solid var(--border-light);
       font-size: 0.9rem;
-      background: #fafafa;
+      background: var(--card-light);
+      color: var(--gray-light);
+    }
+
+    .dark-mode footer {
+      border-top-color: var(--border-dark);
+      background: var(--card-dark);
+      color: var(--gray-dark);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+      }
+      .name-container {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      nav {
+        margin-top: 1rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+      }
+      .social-icons {
+        justify-content: center;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Alder Baldwin Jallorina</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-content">
+      <div class="name-container">
+        <h1>Alder Baldwin Jallorina</h1>
+        <div class="social-icons">
+          <a href="https://x.com/jallorinaalder1" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="discord://discord.com/users/584294518552133643" onclick="window.location.href = 'https://discord.com/users/584294518552133643'; return false;" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://github.com/alderjallorina" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:jallorinaalder1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://steamcommunity.com/id/Superb1a/" target="_blank" aria-label="Steam"><i class="fab fa-steam"></i></a>
+        </div>
+      </div>
+      <nav>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
     <h2>Aspiring Web3 Security Specialist</h2>
     <p>CS Student | Digital Marketer | Future-focused Innovator</p>
-    <button onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">View My Projects</button>
+    <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">Learn More About Me</button>
   </section>
 
   <section id="about">
     <h3>About Me</h3>
-    <p>I’m currently pursuing a Computer Science degree, with a strong interest in mechatronics, virtual assistance, and Web3 security. I also hold certifications in digital marketing from HubSpot Academy.</p>
+    <p>I'm a Computer Science student passionate about Web3 security, blockchain technology, and digital innovation. With a background in digital marketing and a growing expertise in cybersecurity, I'm building skills to secure the decentralized future.</p>
+  </section>
+
+  <section id="education">
+    <h3>Education & Certifications</h3>
+    <ul class="bullet-list">
+      <li><strong>Bachelor of Science in Computer Science</strong> (2022 - Present)<br>
+        Currently pursuing my degree with a focus on cybersecurity and blockchain technologies.</li>
+      
+      <li><strong>HubSpot Academy Certifications</strong> <span class="cert-badge">Certified</span><br>
+        Digital Marketing, Content Marketing, and Social Media Marketing certifications.</li>
+      
+      <li><strong>Web3 Security Fundamentals</strong> <span class="cert-badge">In Progress</span><br>
+        Specialized coursework in blockchain security and smart contract auditing.</li>
+    </ul>
   </section>
 
   <section id="projects">
     <h3>Projects</h3>
-    <p>Coming soon! Stay tuned for my portfolio of work and side projects.</p>
+    <p>Coming soon! Currently working on several Web3 security projects that I'll be sharing here shortly.</p>
   </section>
 
   <section id="experience">
     <h3>Experience</h3>
-    <p>No formal experience yet — but I’m actively learning and growing every day!</p>
+    <p>While I'm early in my professional journey, I've been actively engaged in:</p>
+    <ul class="bullet-list">
+      <li>Freelance digital marketing consulting</li>
+      <li>Open-source contributions to security tools</li>
+      <li>University cybersecurity competitions</li>
+    </ul>
   </section>
 
   <section id="skills">
     <h3>Skills</h3>
-    <ul>
-      <li>HTML & CSS Basics</li>
-      <li>HubSpot Certified – Digital Marketing, Content Marketing, Social Media Marketing</li>
-      <li>VA Tools & Data Analysis</li>
-    </ul>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+      <div>
+        <h4 style="margin-bottom: 0.5rem;">Technical Skills</h4>
+        <ul class="bullet-list">
+          <li>HTML/CSS/JavaScript</li>
+          <li>Blockchain fundamentals</li>
+          <li>Smart contract basics</li>
+          <li>Security analysis</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 0.5rem;">Marketing Skills</h4>
+        <ul class="bullet-list">
+          <li>Digital marketing strategy</li>
+          <li>Content creation</li>
+          <li>Social media management</li>
+          <li>SEO fundamentals</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 0.5rem;">Soft Skills</h4>
+        <ul class="bullet-list">
+          <li>Problem solving</li>
+          <li>Technical writing</li>
+          <li>Team collaboration</li>
+          <li>Continuous learning</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="blog">
     <h3>Personal Blog</h3>
-    <p>I’ll be sharing thoughts on tech, security, and digital growth here soon.</p>
+    <p>Coming soon: Articles on Web3 security, blockchain developments, and my learning journey in cybersecurity.</p>
   </section>
 
   <section id="contact">
     <h3>Contact Me</h3>
-    <p>Email me at: <strong>your-email@example.com</strong></p>
-    <p>GitHub: <a href="https://github.com/alderbaldwinjallorina" target="_blank">@alderbaldwinjallorina</a></p>
+    <p>Let's connect and talk about Web3, security, or potential opportunities!</p>
+    <div style="margin-top: 1.5rem;">
+      <p><i class="fas fa-envelope"></i> Email: <strong>jallorinaalder1@gmail.com</strong></p>
+      <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/alderjallorina" target="_blank">@alderjallorina</a></p>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Alder Baldwin Jallorina. All rights reserved.
   </footer>
+
+  <script>
+    // Dark mode toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const icon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference or use preferred color scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+      document.body.classList.add('dark-mode');
+      icon.classList.replace('fa-moon', 'fa-sun');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      
+      if (isDark) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Update active link
+          navLinks.forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
